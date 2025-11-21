@@ -25,6 +25,10 @@ from utils.memory_tracker import MemoryTracker
 from utils.cost_calculator import CostCalculator
 
 
+# Default target modules for LoRA adaptation
+DEFAULT_LORA_TARGET_MODULES = ["q_proj", "k_proj", "v_proj", "o_proj"]
+
+
 class SpectrumAdapter(nn.Module):
     """
     Spectrum adapter for efficient parameter finetuning
@@ -49,14 +53,16 @@ class SpectrumAdapter(nn.Module):
         return self.spectrum_up(self.spectrum_down(x)) * self.scaling
 
 
-def add_spectrum_adapters(model, rank=32, alpha=16):
+def add_spectrum_adapters(model, rank=32, alpha=16, target_modules=None):
     """Add Spectrum adapters to the model"""
+    
+    if target_modules is None:
+        target_modules = DEFAULT_LORA_TARGET_MODULES
     
     adapter_modules = []
     
     for name, module in model.named_modules():
-        if isinstance(module, nn.Linear) and any(target in name for target in 
-                                                   ["q_proj", "k_proj", "v_proj", "o_proj"]):
+        if isinstance(module, nn.Linear) and any(target in name for target in target_modules):
             # Get dimensions
             in_features = module.in_features
             out_features = module.out_features

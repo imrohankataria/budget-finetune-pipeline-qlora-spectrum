@@ -16,6 +16,7 @@ from transformers import (
     TrainingArguments,
     Trainer,
     DataCollatorForLanguageModeling,
+    BitsAndBytesConfig,
 )
 from datasets import load_dataset
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
@@ -57,18 +58,20 @@ def parse_args():
 def load_and_prepare_model(model_name, lora_config):
     """Load model with 4-bit quantization and prepare for QLoRA training"""
     
+    # Configure 4-bit quantization
+    quantization_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_compute_dtype=torch.float16,
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_quant_type="nf4"
+    )
+    
     # Load model in 4-bit
     model = AutoModelForCausalLM.from_pretrained(
         model_name,
-        load_in_4bit=True,
+        quantization_config=quantization_config,
         device_map="auto",
         torch_dtype=torch.float16,
-        quantization_config={
-            "load_in_4bit": True,
-            "bnb_4bit_compute_dtype": torch.float16,
-            "bnb_4bit_use_double_quant": True,
-            "bnb_4bit_quant_type": "nf4"
-        }
     )
     
     # Prepare model for k-bit training

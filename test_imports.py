@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
 Quick syntax and import test for all modules
+NOTE: This script modifies sys.path for testing purposes only.
+      In production, install the package properly using setup.py
 """
 
 import sys
@@ -8,7 +10,7 @@ import os
 
 print("Testing module imports...")
 
-# Test training modules
+# Test training modules (NOTE: sys.path modification for testing only)
 try:
     sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'src'))
     print("✓ Added src to path")

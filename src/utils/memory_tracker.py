@@ -52,7 +52,8 @@ class MemoryTracker:
                 total = torch.cuda.get_device_properties(0).total_memory / (1024 ** 3)
                 stats["total_gb"] = total
                 stats["free_gb"] = total - allocated
-            except Exception:
+            except (RuntimeError, AttributeError) as e:
+                # Device properties not available or CUDA error
                 pass
         
         # Add system memory

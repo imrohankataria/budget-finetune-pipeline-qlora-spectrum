@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
 """
 Simple example: Train a small model with QLoRA for quick testing
+NOTE: This script modifies sys.path for example purposes only.
+      In production, install the package properly using: pip install -e .
 """
 
 import sys
 import os
 
-# Add src to path
+# Add src to path (for example purposes only - use proper installation in production)
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from utils.memory_tracker import MemoryTracker
