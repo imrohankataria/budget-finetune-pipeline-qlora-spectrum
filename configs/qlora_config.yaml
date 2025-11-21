@@ -1,0 +1,25 @@
+# QLoRA Configuration
+model_name: "meta-llama/Llama-2-7b-hf"
+dataset: "timdettmers/openassistant-guanaco"
+output_dir: "./results/qlora"
+
+# Training parameters
+num_epochs: 3
+batch_size: 4
+learning_rate: 0.0002
+max_seq_length: 512
+
+# LoRA parameters
+lora_r: 64
+lora_alpha: 16
+lora_dropout: 0.1
+
+# Logging
+logging_steps: 10
+save_steps: 100
+
+# Quantization
+use_4bit: true
+bnb_4bit_compute_dtype: "float16"
+bnb_4bit_use_double_quant: true
+bnb_4bit_quant_type: "nf4"

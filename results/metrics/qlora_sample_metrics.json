@@ -1,0 +1,28 @@
+{
+  "method": "qlora",
+  "model_name": "meta-llama/Llama-2-7b-hf",
+  "start_time": "2024-01-15T10:00:00",
+  "end_time": "2024-01-15T12:30:00",
+  "config": {
+    "num_epochs": 3,
+    "batch_size": 4,
+    "learning_rate": 0.0002,
+    "lora_r": 64,
+    "lora_alpha": 16,
+    "max_seq_length": 512
+  },
+  "total_training_time": 9000,
+  "train_loss": 0.8245,
+  "peak_memory_gb": 18.4,
+  "final_memory_gb": 16.2,
+  "cost_per_epoch_usd": 9.6,
+  "total_cost_usd": 28.8,
+  "trainable_params": 4194304,
+  "total_params": 6738415616,
+  "trainable_percent": 0.062,
+  "epoch_metrics": [
+    {"epoch": 1, "loss": 1.234, "time": 3000},
+    {"epoch": 2, "loss": 0.956, "time": 3000},
+    {"epoch": 3, "loss": 0.825, "time": 3000}
+  ]
+}
