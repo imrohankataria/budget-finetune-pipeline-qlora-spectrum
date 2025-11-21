@@ -1,5 +1,10 @@
 # Budget Finetuning Pipeline: QLoRA vs Spectrum
 
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 A comprehensive benchmarking pipeline for low-cost finetuning techniques using LLaMA/Qwen models. This repository compares **QLoRA** (Quantized LoRA) and **Spectrum** (structured low-rank decomposition) approaches, measuring:
 
 - 💰 **Training cost per epoch**
