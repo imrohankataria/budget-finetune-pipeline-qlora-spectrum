@@ -1,0 +1,28 @@
+{
+  "method": "spectrum",
+  "model_name": "meta-llama/Llama-2-7b-hf",
+  "start_time": "2024-01-15T13:00:00",
+  "end_time": "2024-01-15T15:15:00",
+  "config": {
+    "num_epochs": 3,
+    "batch_size": 4,
+    "learning_rate": 0.0002,
+    "spectrum_rank": 32,
+    "spectrum_alpha": 16,
+    "max_seq_length": 512
+  },
+  "total_training_time": 8100,
+  "train_loss": 0.8467,
+  "peak_memory_gb": 22.1,
+  "final_memory_gb": 19.8,
+  "cost_per_epoch_usd": 8.64,
+  "total_cost_usd": 25.92,
+  "trainable_params": 13631488,
+  "total_params": 6738415616,
+  "trainable_percent": 0.202,
+  "epoch_metrics": [
+    {"epoch": 1, "loss": 1.198, "time": 2700},
+    {"epoch": 2, "loss": 0.932, "time": 2700},
+    {"epoch": 3, "loss": 0.847, "time": 2700}
+  ]
+}

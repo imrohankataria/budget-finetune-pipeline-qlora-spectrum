@@ -1,0 +1,21 @@
+# Spectrum Configuration
+model_name: "meta-llama/Llama-2-7b-hf"
+dataset: "timdettmers/openassistant-guanaco"
+output_dir: "./results/spectrum"
+
+# Training parameters
+num_epochs: 3
+batch_size: 4
+learning_rate: 0.0002
+max_seq_length: 512
+
+# Spectrum parameters
+spectrum_rank: 32
+spectrum_alpha: 16
+
+# Logging
+logging_steps: 10
+save_steps: 100
+
+# Quantization (optional)
+use_8bit: false
